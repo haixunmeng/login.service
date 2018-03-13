@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: provider
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:123456@1.eureka.com:10001/eureka/,http://root:123456@2.eureka.com:10002/eureka/,http://root:123456@3.eureka.com:10003/eureka/
+
+---
+spring:
+  profiles: 1
+server:
+  port: 11001
+  
+---
+spring:
+  profiles: 2
+server:
+  port: 11002
+  
+---
+spring:
+  profiles: 3
+server:
+  port: 11003
