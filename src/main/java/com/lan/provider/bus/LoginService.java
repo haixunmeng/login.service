@@ -6,20 +6,20 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloWorldProvier {
+public class LoginService {
 
-	private static final Logger logger = LoggerFactory.getLogger(HelloWorldProvier.class);
+	private static final Logger logger = LoggerFactory.getLogger(LoginService.class);
 	
-	@GetMapping("/hello")
-	public Map<String, String> hello(){
+	@GetMapping("/login")
+	public Map<String, String> login(@RequestBody LoginInputBean input){
 		Map<String, String> result = new HashMap<>();
 		
-		result.put("k1", "v1");
-		result.put("k2", "v2");
-		result.put("k3", "v3");
+		result.put("username", input.getUsername());
+		result.put("password", input.getPassword());
 		
 		logger.info("{}", result);
 		
